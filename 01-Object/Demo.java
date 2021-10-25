@@ -1,6 +1,6 @@
 public class Demo{
   /* more methods can go here*/
-  public static double distance(Point pp, Point p) {
+  public static double distance(Point pp, Point p) {            //static method
     double ypart = (p.getY()*p.getY()) - (pp.getY()*pp.getY());
     double xpart = (p.getX()*p.getX()) - (pp.getX()*pp.getX());
     return Math.sqrt(ypart + xpart);
