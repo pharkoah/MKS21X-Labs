@@ -1,8 +1,8 @@
 public class Demo{
   /* more methods can go here*/
-  public static double distance(double pp, double p) {
-    double ypart = (getY(p)*getY(p)) - (getY(pp)*getY(pp));
-    double xpart = (getX(p)*getX(p)) - (getX(pp)*getX(pp));
+  public static double distance(Point pp, Point p) {
+    double ypart = (p.getY()*p.getY()) - (pp.getY()*pp.getY());
+    double xpart = (p.getX()*p.getX()) - (pp.getX()*pp.getX());
     return Math.sqrt(ypart + xpart);
   }
 
