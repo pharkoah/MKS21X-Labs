@@ -1,7 +1,11 @@
 public class Triangle{
   private Point v1,v2,v3;
 
+<<<<<<< HEAD
   public Triangle(Point a, Point b, Point c) {
+=======
+  public Triangle(Point a, Point b, Point C) {
+>>>>>>> 90a751b6574efdc2eacc34ca77db3da3d125dcac
     v1 = a;
     v2 = b;
     v3 = c;
