@@ -26,4 +26,16 @@ public class Point{
     double xpart = (p.getX()*p.getX()) - (x*x);
     return Math.sqrt(ypart + xpart);
   }
+
+  /*Return a string in the format: (x, y)
+  *where x and y are the values from the Point.
+* e.g.  "(0.0, 1.23)"  or  "(-1.02, 21.45)"
+  */
+  public String toString(){
+    String res = "";
+    res += "(";
+    res += x + ", " + y;
+    res += ")";
+    return res;
+  }
 }
