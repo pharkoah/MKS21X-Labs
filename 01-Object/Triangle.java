@@ -14,4 +14,22 @@ public class Triangle{
     v3 = new Point(cx, cy);
   }
 
+  public double getPerimeter() {
+    double l1 = (v1.distanceTo(v2));
+    double l2 = (v2.distanceTo(v3));
+    double l3 = (v3.distanceTo(v1));
+    return l1 + l2 + l3;
+  }
+
+  public Point getVertex(int vert) {
+    if (vert == 1) {
+      return v1;
+    }
+    if (vert == 2) {
+      return v2;
+    }
+    return v3;
+    }
+
+
 }
