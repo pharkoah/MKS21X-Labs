@@ -31,5 +31,18 @@ public class Triangle{
     return v3;
     }
 
-
+  public Point setVertex(int vert2, Point vnew) {
+    if (vert2 == 1) {
+      v1 = vnew;
+      return v1;
+    }
+    if (vert2 == 2) {
+      v2 = vnew;
+      return v2;
+    }
+    if (vert2 == 3) {
+      v3 = vnew;
+    }
+    return v3;
+    }
 }
