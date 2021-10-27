@@ -14,14 +14,37 @@ public class Triangle{
     v3 = new Point(cx, cy);
   }
 
-  public double getPerimeter() {
-    double l1 = (v1.distanceTo(v2));
-    double l2 = (v2.distanceTo(v3));
-    double l3 = (v3.distanceTo(v1));
-    return l1 + l2 + l3;
+    public static boolean closeEnough(double a, double b) {
+      if (a == 0) {
+        return (b == 0);
+      }
+      if (b == 0) {
+        return (a == 0);
+      }
+      return (Math.abs(a - b)) / b) * 100;
+    }
+
+    public boolean equals(Triangle other){
+      if (v1 != other.getVertex(1)) {
+        return false;
+      }
+      if (v2 != other.getVertex(2)) {
+        return false;
+      }
+      if (v3 != other.getVertex(3)) {
+        return false;
+      }
+      return true;
   }
 
-  public Point getVertex(int vert) {
+    public double getPerimeter() {
+      double line1 = (v1.distanceTo(v2));
+      double line2 = (v2.distanceTo(v3));
+      double line3 = (v3.distanceTo(v1));
+      return line1 + line2 + line3;
+    }
+
+    public Point getVertex(int vert) {
     if (vert == 1) {
       return v1;
     }
