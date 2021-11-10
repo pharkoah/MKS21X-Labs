@@ -45,9 +45,20 @@ public class SuperArray {
 
   public String get(int index) {
     if ( (index < 0 ) || (index >= size) ) {
+      System.out.println("ERROR! INDEX IS INVALID! MAKE IT VALID!");
       return null;
     }
-    String res = data[index].toString();
+    String res = data[index];
+    return res;
+  }
+
+  public String set(int index, String element) {
+    if ( (index < 0 ) || (index >= size) ) {
+      System.out.println("ERROR! INDEX IS INVALID! MAKE IT VALID!");
+      return null;
+    }
+    String res = data[index];
+    data[index] = element;
     return res;
   }
 }
