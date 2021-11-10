@@ -19,35 +19,51 @@ public class TesterForSA {
     System.out.println(alist.toStringDebug());
     System.out.println("test for size: " + alist.size());
 
-    // loops
-    SuperArray blist = alist;
+    // phase 2 tests
+    SuperArray blist = new SuperArray(5);
+    blist.add("Alif");
+    blist.add("Lucas");
+    blist.add("Maggie");
 // loop 1
-    System.out.println("Tests for loop 1:");
+    System.out.println("Test for loop 1:");
     for (int i = 0; i < alist.size(); i++) {
-      System.out.println("Value " + i + " for loop 1: " + alist.get(i));
+      System.out.println("Value " + i + " for alist loop 1: " + alist.get(i));
+    }
+    System.out.println("");
+    for (int i = 0; i < blist.size(); i++) {
+      System.out.println("Value " + i + " for blist loop 1: " + blist.get(i));
     }
 
 // loop 2
     System.out.println("Tests for loop 2:");
-    for (int i = 0; i < alist.size(); i++) {
-      alist.set(i, "cringe");
+    for (int i = 0; i < blist.size(); i++) {
+      blist.set(i, "cringe");
     }
-    for (int i = 0; i < alist.size(); i++) {
-      System.out.println("Value " + i + " for loop 2: " + alist.get(i));
-    }
-
+    System.out.println("Test for Loop 2: " + blist.toString());
+    System.out.println("Test for Loop 2: " + blist.toStringDebug());
 // loop 3
     System.out.println("Tests for loop 3:");
-    for (int i = 0; i < blist.size(); i++) {
+    for (int i = 0; i < alist.size(); i++) {
       if (!(i == alist.size()-1)) {
+        alist.set(i, alist.get(i+1));
+      } else {
+        alist.set(i, "NOPE!");
+      }
+    }
+    System.out.println("Test for alist Loop 3: " + alist.toString());
+    System.out.println("Test for alist Loop 3: " + alist.toStringDebug());
+
+    for (int i = 0; i < blist.size(); i++) {
+      if (!(i == blist.size()-1)) {
         blist.set(i, blist.get(i+1));
       } else {
         blist.set(i, "NOPE!");
       }
     }
-    for (int i = 0; i < blist.size(); i++) {
-      System.out.println("Value " + i + " for loop 3: " + blist.get(i));
-    }
+    System.out.println("Test for blist Loop 3: " + blist.toString());
+    System.out.println("Test for blist Loop 3: " + blist.toStringDebug());
+//phase 3 tests
+
 
   }
 }
