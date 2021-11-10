@@ -11,9 +11,17 @@ public class SuperArray {
     return size;
   }
 
+  public int length() {   //added it in for tests in phase 4
+    return data.length;
+  }
+
   public boolean add(String s) {
+    if (size >= data.length) {
+      resize();
+    }
     data[size] = s;
     size++;
+
     return true;
   }
 

@@ -63,15 +63,33 @@ public class TesterForSA {
     System.out.println("Test for blist Loop 3: " + blist.toString());
     System.out.println("Test for blist Loop 3: " + blist.toStringDebug());
 //phase 3 tests
-    System.out.println("Tests for phase 4 (resizing via add):");
+    System.out.println("Tests for phase 3 (resizing via add):");
     SuperArray clist = new SuperArray(3);
     clist.add("Ber");
     clist.add("Ark");
     clist.add("Maya");
     System.out.println(clist.toString());
     System.out.println(clist.toStringDebug());
+    System.out.println("The length of clist is: " + clist.length());
+    System.out.println("What it should be: 3");
     clist.add("Bell Pepper");
+    clist.add("Breaven");
+    clist.add("Ark");
+    clist.add("Ber");
     System.out.println(clist.toString());
     System.out.println(clist.toStringDebug());
+    System.out.println("The length of updated clist is: " + clist.length());
+    System.out.println("What it should be: 7");
+
+//phase 4
+    System.out.println("Test for phase 4 (indexOf):");
+    System.out.println(clist.indexOf("Maya"));
+    System.out.println(clist.indexOf("Breaven"));
+    System.out.println("Test for phase 4 (lastIndexOf):");
+    System.out.println(clist.lastIndexOf("Ark"));
+    System.out.println(clist.lastIndexOf("Ber"));
+    System.out.println("Test for phase 4 (add):");
+    clist.add(2, "maya but lowercase");
+    System.out.println(clist.toString());
   }
 }
