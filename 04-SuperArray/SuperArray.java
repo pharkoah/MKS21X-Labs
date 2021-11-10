@@ -76,15 +76,16 @@ public class SuperArray {
   }
 
   public String remove(int index) {
+    String res = data[index];
     if ( (index < 0 ) || (index >= size) ) {
       System.out.println("ERROR! INDEX IS INVALID! MAKE IT VALID!");
       return null;
     }
-    for (int i = index; i < alist.size(); i++) {
+    for (int i = index; i < size; i++) {
       data[i] = data[i+1];
     }
     data[size-1] = null;
-    return data[index];
+    return res;
   }
 
   public int indexOf(String target) {
@@ -118,4 +119,12 @@ public class SuperArray {
     size++;
   }
 
+  public boolean remove(String target) {
+    if (data.indexOf(target) ) {
+      data.remove(data.indexOf(target));
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
