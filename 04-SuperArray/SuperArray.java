@@ -61,4 +61,18 @@ public class SuperArray {
     data[index] = element;
     return res;
   }
+
+  public SuperArray(int initialCapacity) {
+    data = new String[initialCapacity];
+    size = 0;
+  }
+
+  private void resize() {
+    String[] reArr = new String[2 * data.length + 1];
+    for (int i = 0; i < size; i++) {
+      reArr[i] = data[i];
+    }
+    data = reArr;
+  }
+
 }
