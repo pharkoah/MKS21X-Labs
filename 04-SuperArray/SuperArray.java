@@ -75,4 +75,16 @@ public class SuperArray {
     data = reArr;
   }
 
+  public String remove(int index) {
+    if ( (index < 0 ) || (index >= size) ) {
+      System.out.println("ERROR! INDEX IS INVALID! MAKE IT VALID!");
+      return null;
+    }
+    for (int i = index; i < alist.size(); i++) {
+      data[i] = data[i+1];
+    }
+    data[size-1] = null;
+    return data[index];
+  }
+
 }
