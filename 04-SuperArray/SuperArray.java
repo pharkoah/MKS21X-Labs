@@ -105,4 +105,17 @@ public class SuperArray {
     return -1;
   }
 
+  public void add(int index, String value) {
+    if ( (index < 0 ) || (size+1 > data.length) || (index > size) ) {
+      System.out.println("ERROR! INDEX IS INVALID! MAKE IT VALID!");
+      return null;
+    }else {
+      for (int i = data.length; i > index; i--) {
+        data[i] = data[i-1];
+      }
+    }
+    data[index] = value;
+    size++;
+  }
+
 }
