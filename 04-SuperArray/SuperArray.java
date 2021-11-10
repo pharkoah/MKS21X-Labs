@@ -21,7 +21,11 @@ public class SuperArray {
     String res = "";
     res += "[";
     for (int i = 0; i < size; i++) {
+      if (i == size-1) {
+        res += data[i];
+      }else {
         res += data[i] + ", ";
+      }
     }res += "]";
     return res;
   }
@@ -30,7 +34,11 @@ public class SuperArray {
     String res = "";
     res += "[";
     for (int i = 0; i < data.length; i++) {
-        res += data[i] + ",";
+        if (i == data.length-1) {
+          res += data[i];
+        }else {
+          res += data[i] + ", ";
+        }
     }res += "]";
     return res;
   }
