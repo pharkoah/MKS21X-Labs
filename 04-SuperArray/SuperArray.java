@@ -109,7 +109,6 @@ public class SuperArray {
   public void add(int index, String value) {
     if ( (index < 0 ) || (size+1 > data.length) || (index > size) ) {
       System.out.println("ERROR! INDEX IS INVALID! MAKE IT VALID!");
-      return null;
     }else {
       for (int i = data.length; i > index; i--) {
         data[i] = data[i-1];
@@ -120,8 +119,8 @@ public class SuperArray {
   }
 
   public boolean remove(String target) {
-    if (data.indexOf(target) ) {
-      data.remove(data.indexOf(target));
+    if (indexOf(target) != -1) {
+      remove(indexOf(target));
       return true;
     } else {
       return false;
