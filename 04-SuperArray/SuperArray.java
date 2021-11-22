@@ -115,8 +115,8 @@ public class SuperArray {
   }
 
   public void add(int index, String value) {
-    if ( (index < 0 ) || (size+1 > data.length) || (index > size) ) {
-      System.out.println("ERROR! INDEX IS INVALID! MAKE IT VALID!");
+    if ( (index < 0 ) || (size > data.length) || (index > size) ) {
+      System.out.println("ERROR! cringe INDEX IS INVALID! MAKE IT VALID!");
     }else {
       for (int i = data.length; i > index; i--) {
         data[i] = data[i-1];
