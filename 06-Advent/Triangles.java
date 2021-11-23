@@ -9,14 +9,13 @@ public class Triangles {
           Scanner input = new Scanner(file);
           while (input.hasNextLine()) {
               String line = input.nextLine();
-              String[] line2 = line.split(" ");
-              int a = Integer.parseInt(line2[0]);
-              int b = Integer.parseInt(line2[1]);
-              int c = Integer.parseInt(line2[2]);
-              if (a + b > c) {
+              Scanner line2 = new Scanner(line);
+              int a = line2.nextInt();
+              int b = line2.nextInt();
+              int c = line2.nextInt();
+              if ( (a + b > c) && (b + c > a) && (a + c > b) ) {
                 TriC++;
               }
-
           }
           input.close();
 
