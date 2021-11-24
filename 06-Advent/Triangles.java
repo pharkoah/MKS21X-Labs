@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 public class Triangles {
   public static void main(String[] args) {
-    if (args[1] == 1) {
+    if (Integer.parseInt(args[1]) == 1) {
       int TriC = 0;
       try {
           File file = new File(args[0]);
@@ -17,7 +17,7 @@ public class Triangles {
               if ( (a + b > c) && (b + c > a) && (a + c > b) ) {
                 TriC++;
               }
-          }return(TriC);
+          }System.out.println(TriC);
           input.close();
 
       } catch (FileNotFoundException ex) {
@@ -26,7 +26,7 @@ public class Triangles {
     }
 
 //part 2
-    if (args[1] == 2) {
+    if (Integer.parseInt(args[1]) == 2) {
       int TriC2 = 0;
       try {
 
@@ -62,7 +62,7 @@ public class Triangles {
                 TriC2++;
                 //System.out.println(a);
               }
-          }return TriC2;
+          }System.out.println(TriC2);
           input.close();
 
       } catch (FileNotFoundException ex) {
