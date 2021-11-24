@@ -14,10 +14,19 @@ public class Wrapping {
               //int b = line2.nextInt();
               //int c = line2.nextInt();
               String[] sp = line.split("x");
-              int a = Integer.parseInt(sp[0]);
-              int b = Integer.parseInt(sp[1]);
-              int c = Integer.parseInt(sp[2]);
-                wrap += (2 * a * b) + (2 * b * c) + (2 * a * c) + (a * b);
+              int l = Integer.parseInt(sp[0]);
+              int w = Integer.parseInt(sp[1]);
+              int h = Integer.parseInt(sp[2]);
+              wrap += ( (2 * l * w) + (2 * w * h) + (2 * h * l) );
+              if (l < h && w < h) {
+                wrap += l * w;
+              }
+              if (w < l && h < l) {
+                wrap += w * h;
+              }
+              if (h < w && l < w) {
+                wrap += h * l;
+              }
           }System.out.println(wrap);
           input.close();
 
