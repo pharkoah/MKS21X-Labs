@@ -3,9 +3,10 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 public class Triangles {
   public static void main(String[] args) {
+    if (args[1] == 1) {
       int TriC = 0;
       try {
-          File file = new File("data.txt");
+          File file = new File(args[0]);
           Scanner input = new Scanner(file);
           while (input.hasNextLine()) {
               String line = input.nextLine();
@@ -16,19 +17,20 @@ public class Triangles {
               if ( (a + b > c) && (b + c > a) && (a + c > b) ) {
                 TriC++;
               }
-          }
+          }return(TriC);
           input.close();
 
       } catch (FileNotFoundException ex) {
           System.out.println("no valid file here");
       }
-      System.out.println(TriC);
+    }
 
 //part 2
+    if (args[1] == 2) {
       int TriC2 = 0;
       try {
 
-          File file = new File("data.txt");
+          File file = new File(args[0]);
           Scanner input = new Scanner(file);
           while (input.hasNextLine()) {
               String line01 = input.nextLine();
@@ -60,12 +62,13 @@ public class Triangles {
                 TriC2++;
                 //System.out.println(a);
               }
-          }
+          }return TriC2;
           input.close();
 
       } catch (FileNotFoundException ex) {
           System.out.println("no valid file here");
       }
-      System.out.println(TriC2);
+
+    }
   }
 }
