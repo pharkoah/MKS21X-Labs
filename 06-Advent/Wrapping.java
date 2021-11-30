@@ -1,7 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-public class Wrapping {
+import java.util.Arrays;
+public class cringe {
   public static void main(String[] args) {
       int wrap = 0;
       try {
@@ -14,19 +15,23 @@ public class Wrapping {
               //int b = line2.nextInt();
               //int c = line2.nextInt();
               String[] sp = line.split("x");
-              int l = Integer.parseInt(sp[0]);
-              int w = Integer.parseInt(sp[1]);
-              int h = Integer.parseInt(sp[2]);
-              wrap += ( (2 * l * w) + (2 * w * h) + (2 * h * l) );
-              if (l < h && w < h) {
-                wrap += l * w;
+              int a = Integer.parseInt(sp[0]);
+              int b = Integer.parseInt(sp[1]);
+              int c = Integer.parseInt(sp[2]);
+              wrap += (2 * ((a * b) + (b * c) + (c * a)));// + (a * b);
+              int[] wrarr = {a * b, b * c, c * a};
+              /*if (sa < sc && sa < sb) {
+                wrap += sa;
               }
-              if (w < l && h < l) {
-                wrap += w * h;
+              if (sb < sa && sb < sc) {
+                wrap += sb;
               }
-              if (h < w && l < w) {
-                wrap += h * l;
-              }
+              if (sc < sa && sc < sb) {
+                wrap += sc;
+              }*/
+              Arrays.sort(wrarr);
+              wrap += wrarr[0];
+              System.out.println(wrap);
           }System.out.println(wrap);
           input.close();
 
