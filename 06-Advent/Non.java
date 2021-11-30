@@ -10,7 +10,8 @@ public class Non {
         Scanner input = new Scanner(file);
         int vowelC = 0;
         boolean repeat = false;
-        boolean contain = true;
+        boolean contain = false;
+        int nice = 0;
         while (input.hasNextLine()) {
           String line = input.nextLine();
           String[] sp = line.split("");
@@ -23,12 +24,17 @@ public class Non {
             }
           }
           for (int j = 2; j < line.length()-1; j++) {
-            if ( (line.substring(j-2, j) == "ab") || (line.substring(j-2, j) == "cd") || line.substring(j-2, j) == "pq" || line.substring(j-2, j) == "xy") {
-              contain = false;
+            if ( (line.substring(j-2, j) == "ab") || (line.substring(j-2, j) == "cd") || (line.substring(j-2, j) == "pq") || (line.substring(j-2, j) == "xy") ) {
+              contain = true;
             }
           }
+          if (vowelC >= 3 && repeat == true && contain == false) {
+            nice++;
+          }
         }
-      }
+        System.out.println(nice);
+        input.close();
+    }
       catch (FileNotFoundException ex) {
           System.out.println("no valid file here");
       }
