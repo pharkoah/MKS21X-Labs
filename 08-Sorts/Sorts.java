@@ -14,5 +14,13 @@ public class Sorts{
         i = 0;
       }
     }
+    for (int j = 0; j < data.length-1; j++) {   //checker to make sure the first loop didnt make any mistakes
+      if (data[j] > data[j+1]) {
+        save = data[j+1];
+        data[j+1] = data[j];
+        data[j] = save;
+        j = 0;
+      }
+    }
   }
 }
