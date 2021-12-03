@@ -23,4 +23,20 @@ public class Sorts{
       }
     }
   }
+
+  public static String bubbleCheck(int[] arr) {
+    int[] arr2 = arr;
+    int check = 0;
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i] == arr2[i]) {
+        check++;
+      }
+    }
+    if (check == arr.length) {
+      return ("sort and bubbleSort work the same way");
+    }
+    else {
+      return ("sort and bubbleSort do NOT work the same way");
+    }
+  }
 }
