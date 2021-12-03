@@ -41,7 +41,53 @@ public class Non {
         }
         System.out.println(nice);
         input.close();
+      }
+      catch (FileNotFoundException ex) {
+          System.out.println("no valid file here");
+      }
     }
+    if (Integer.parseInt(args[1]) == 2) {
+      try {
+        File file = new File(args[0]);
+        Scanner input = new Scanner(file);
+        boolean overlapping = true;
+        boolean between = false;
+        int nice = 0;
+        while (input.hasNextLine()) {
+          String line = input.nextLine();
+          char now, future, past;
+          String[] arr = new String[line.length()];
+          int j = 0;
+          for (int i = 1; i < line.length()-1; i++) {
+            now = line.charAt(i);
+            past = line.charAt(i-1);
+            future = line.charAt(i+1);
+            if (past == future) {
+              between = true;
+            }
+          }
+          if (line.length % 2){
+            for (int l = 0; l < line.length()-1; l+=2) {
+              arr[j] = line.substring(l, l+2);
+              j++;
+              //l++;
+            }
+          } else {
+
+          }
+          System.out.println(Arrays.toString(arr));
+          for (int x = 0; x < arr.length-1; x++) {
+            if (arr[x] == arr[x+1]) {
+              overlapping = false;
+            }
+          }
+          if (between == true && overlapping == false) {
+            nice++;
+          }
+        }
+        System.out.println(nice);
+        input.close();
+      }
       catch (FileNotFoundException ex) {
           System.out.println("no valid file here");
       }
