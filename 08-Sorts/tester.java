@@ -6,21 +6,15 @@ public class tester {
     System.out.println("before sort: " + Arrays.toString(arr));
     Sorts.bubbleSort(arr);
     System.out.println("after sort: " + Arrays.toString(arr));
-    System.out.println("before sort: " + Arrays.toString(arr2));
+    System.out.println("\nbefore sort: " + Arrays.toString(arr2));
     Sorts.bubbleSort(arr2);
     System.out.println("after sort: " + Arrays.toString(arr2));
     int[] rev = {99, 88, 77, 66, 55, 44, 33, 22, 11};
-    int[] rev2 = rev;
-    Sorts.bubbleSort(rev);
-    Arrays.sort(rev2);
-    for (int i = 0; i < rev.length; i++) {
-      int check = 0;
-      if (rev[i] == rev2[i]) {
-        check++;
-      }
-    }
-    if (check == rev.length) {
-      System.out.println();
-    }
+    System.out.println("\nfor rev: " + Sorts.bubbleCheck(rev));
+
+    int[] sort = {1, 2, 3, 4, 5, 6};
+    System.out.println("\nbefore sort: " + Arrays.toString(sort));
+    Sorts.bubbleSort(sort);
+    System.out.println("after sort: " + Arrays.toString(sort));
   }
 }
