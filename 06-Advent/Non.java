@@ -50,7 +50,7 @@ public class Non {
       try {
         File file = new File(args[0]);
         Scanner input = new Scanner(file);
-        boolean overlapping = true;
+        boolean repeat2 = false;
         boolean between = false;
         int nice = 0;
         while (input.hasNextLine()) {
@@ -84,16 +84,16 @@ public class Non {
             if (arr[x+1] == null) {
               x = arr.length-1;
             }
-            for (int k = x; x < arr.length-1; k++) {
+            while (repeat2 = false) {
+              int k = x+1;
               if (arr[x] == arr[k]) {
-                overlapping = false;
+                repeat2 = true;
               }
-              if (overlapping == false) {
-                x = arr.length-1;
-              }
+              k++;
             }
+          System.out.println(repeat2);
           }
-          if (overlapping == false) {
+          if (repeat2 == true) {
             nice++;
           }
         }
