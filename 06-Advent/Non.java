@@ -66,14 +66,18 @@ public class Non {
               between = true;
             }
           }
-          if (line.length % 2){
+          if (line.length() % 2 == 0){
             for (int l = 0; l < line.length()-1; l+=2) {
               arr[j] = line.substring(l, l+2);
               j++;
               //l++;
             }
           } else {
-
+            for (int h = 0; h < line.length()-1; h++) {
+              arr[j] = line.substring(h, h+2);
+              j++;
+              //l++;
+            }
           }
           System.out.println(Arrays.toString(arr));
           for (int x = 0; x < arr.length-1; x++) {
