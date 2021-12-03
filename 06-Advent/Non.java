@@ -16,7 +16,7 @@ public class Non {
           String line = input.nextLine();
           String[] sp = line.split("");
           char now;
-          char past = 'x';
+          char past = '.';
           for (int i = 0; i < line.length(); i++) {
             now = line.charAt(i);
             if (now == ('a') || now == ('e') || now == ('i') || now == ('o') || now == ('u')) {
@@ -81,11 +81,19 @@ public class Non {
           }
           System.out.println(Arrays.toString(arr));
           for (int x = 0; x < arr.length-1; x++) {
-            if (arr[x] == arr[x+1]) {
-              overlapping = false;
+            if (arr[x+1] == null) {
+              x = arr.length-1;
+            }
+            for (int k = x; x < arr.length-1; k++) {
+              if (arr[x] == arr[k]) {
+                overlapping = false;
+              }
+              if (overlapping == false) {
+                x = arr.length-1;
+              }
             }
           }
-          if (between == true && overlapping == false) {
+          if (overlapping == false) {
             nice++;
           }
         }
