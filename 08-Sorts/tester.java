@@ -11,11 +11,19 @@ public class tester {
     Sorts.bubbleSort(arr2);
     System.out.println("after sort: " + Arrays.toString(arr2));
 
+    System.out.println(Sorts.bubbleCheck(arr));
+
     //checker and reversed values
     int[] rev = {99, 88, 77, 66, 55, 44, 33, 22, 11};
+    int[] revc = {99, 88, 77, 66, 55, 44, 33, 22, 11};
     System.out.println("\nbefore sort: " + Arrays.toString(rev));
     System.out.println("for rev: " + Sorts.bubbleCheck(rev));
     System.out.println("after sort: " + Arrays.toString(rev));
+
+    //insertionSort rev values
+    System.out.println("\nbefore sort: " + Arrays.toString(revc));
+    Sorts.insertionSort(revc);
+    System.out.println("after sort: " + Arrays.toString(revc));
 
     //sorted values
     int[] sort = {1, 2, 3, 4, 5, 6};
@@ -37,8 +45,14 @@ public class tester {
 
     //repeated values
     int[] repeat = {19, 15, 7, 8, 7, 3, 10, 21, 19, 19, 77, 3, 16, 49};
+    int[] repeat2 = {19, 15, 7, 8, 7, 3, 10, 21, 19, 19, 77, 3, 16, 49};
     System.out.println("\nbefore sort: " + Arrays.toString(repeat));
     Sorts.bubbleSort(repeat);
     System.out.println("after sort: " + Arrays.toString(repeat));
+
+    //insertionSort repeated values
+    System.out.println("\nbefore sort: " + Arrays.toString(repeat2));
+    Sorts.bubbleSort(repeat2);
+    System.out.println("after sort: " + Arrays.toString(repeat2));
   }
 }
