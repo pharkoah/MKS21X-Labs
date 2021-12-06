@@ -1,3 +1,4 @@
+import java.util.Arrays;
 public class Sorts{
 
   /**Bubble sort of an int array.
@@ -27,6 +28,8 @@ public class Sorts{
   public static String bubbleCheck(int[] arr) {
     int[] arr2 = arr;
     int check = 0;
+    Arrays.sort(arr2);
+    Sorts.bubbleSort(arr);
     for (int i = 0; i < arr.length; i++) {
       if (arr[i] == arr2[i]) {
         check++;
@@ -39,4 +42,22 @@ public class Sorts{
       return ("sort and bubbleSort do NOT work the same way");
     }
   }
+
+  public static void insertionSort(int[] data) {
+    int save;
+    for (int x = 0; x < data.length; x++) {
+      for (int i = 1; i < data.length; i++) {
+        if (data[i] < data[i-1]) {
+          for (int j = 0; j < i; j++) {
+            if (data[i] < data[j]) {
+              save = data[i-1];
+              data[i-1] = data[i];
+              data[i] = save;
+            }
+          }
+        }
+      }
+    }
+  }
+
 }
