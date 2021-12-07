@@ -47,18 +47,19 @@ public class Sorts{
     int save = ary[0];
     int saveI = 0;
     for (int i = 0; i < ary.length; i++) {
-      for (int j = 1; j < ary.length-1; j++) {
+      for (int j = 1; j < ary.length; j++) {
         if (ary[i] > ary[j] ) {
           save = ary[j];
           saveI = j;
         }
-        if (saveI != 0 && save > ary[j]) {
-          save = ary[j];
-          saveI = j;
-        }
+        //if (saveI != 0 && save > ary[j]) {
+          //save = ary[j];
+          //saveI = j;
+        //}
       }
       ary[saveI] = ary[i];
       ary[i] = save;
+      System.out.println(Arrays.toString(ary));
     }
   }
 
