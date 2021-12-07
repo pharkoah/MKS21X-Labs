@@ -16,6 +16,7 @@ public class tester {
     //checker and reversed values
     int[] rev = {99, 88, 77, 66, 55, 44, 33, 22, 11};
     int[] revc = {99, 88, 77, 66, 55, 44, 33, 22, 11};
+    int[] revs = {99, 88, 77, 66, 55, 44, 33, 22, 11};
     System.out.println("\nbefore sort: " + Arrays.toString(rev));
     System.out.println("for rev: " + Sorts.bubbleCheck(rev));
     System.out.println("after sort: " + Arrays.toString(rev));
@@ -25,6 +26,10 @@ public class tester {
     Sorts.insertionSort(revc);
     System.out.println("after sort: " + Arrays.toString(revc));
 
+    //selectionSort rev values test;
+    System.out.println("\nbefore sort: " + Arrays.toString(revs));
+    Sorts.selectionSort(revs);
+    System.out.println("after sort: " + Arrays.toString(revs));
     //sorted values
     int[] sort = {1, 2, 3, 4, 5, 6};
     System.out.println("\nbefore sort: " + Arrays.toString(sort));
