@@ -13,6 +13,12 @@ public class tester {
 
     System.out.println(Sorts.bubbleCheck(arr));
 
+    //insertionSort randomized values
+    int[] classex = {4, 3, 2, 10, 12, 1, 5, 6};
+    System.out.println("\nbefore sort: " + Arrays.toString(classex));
+    Sorts.insertionSort(classex);
+    System.out.println("after sort: " + Arrays.toString(classex));
+
     //checker and reversed values
     int[] rev = {99, 88, 77, 66, 55, 44, 33, 22, 11};
     int[] revc = {99, 88, 77, 66, 55, 44, 33, 22, 11};

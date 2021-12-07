@@ -44,12 +44,11 @@ public class Sorts{
   }
 
   public static void selectionSort(int [] ary) {
-    int save = ary[0];
-    int saveI = 0;
-    for (int i = 0; i < ary.length; i++) {
-      for (int j = 1; j < ary.length; j++) {
-        if (ary[i] > ary[j] ) {
-          save = ary[j];
+    int save = 0;
+    for (int i = 0; i < ary.length-1; i++) {
+      int saveI = i;
+      for (int j = i+1; j < ary.length; j++) {
+        if (ary[j] < ary[saveI] ) {
           saveI = j;
         }
         //if (saveI != 0 && save > ary[j]) {
@@ -57,27 +56,28 @@ public class Sorts{
           //saveI = j;
         //}
       }
+      save = ary[saveI];
       ary[saveI] = ary[i];
       ary[i] = save;
-      System.out.println(Arrays.toString(ary));
     }
   }
 
   public static void insertionSort(int[] data) {
-    int save;
-    for (int x = 0; x < data.length; x++) {
-      for (int i = 1; i < data.length; i++) {
-        if (data[i] < data[i-1]) {
-          for (int j = 0; j < i; j++) {
-            if (data[i] < data[j]) {
-              save = data[i-1];
-              data[i-1] = data[i];
-              data[i] = save;
+      int save;
+      for (int x = 0; x < data.length; x++) {
+        for (int i = 1; i < data.length; i++) {
+          if (data[i] < data[i-1]) {
+            for (int j = 0; j < i; j++) {
+              if (data[i] < data[j]) {
+                save = data[i-1];
+                data[i-1] = data[i];
+                data[i] = save;
+              }
             }
           }
         }
+        System.out.println(Arrays.toString(data));
       }
     }
-  }
 
 }
