@@ -43,6 +43,25 @@ public class Sorts{
     }
   }
 
+  public static void selectionSort(int [] ary) {
+    int save = ary[0];
+    int saveI = 0;
+    for (int i = 0; i < ary.length; i++) {
+      for (int j = 1; j < ary.length-1; j++) {
+        if (ary[i] > ary[j] ) {
+          save = ary[j];
+          saveI = j;
+        }
+        if (saveI != 0 && save > ary[j]) {
+          save = ary[j];
+          saveI = j;
+        }
+      }
+      ary[saveI] = ary[i];
+      ary[i] = save;
+    }
+  }
+
   public static void insertionSort(int[] data) {
     int save;
     for (int x = 0; x < data.length; x++) {
