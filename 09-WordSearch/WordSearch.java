@@ -31,7 +31,11 @@ public class WordSearch{
      */
     public String toString() {
       String res = "";
-      res += Prows;
+      for (int i = 0; i < Prows; i++) {
+        for (int x = 0; x < Pcols; x++) {
+          res += data[i][x]
+        }
+      }
       return res;
     }
 
