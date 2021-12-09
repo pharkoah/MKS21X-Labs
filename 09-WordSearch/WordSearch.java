@@ -35,6 +35,7 @@ public class WordSearch{
         for (int x = 0; x < Pcols; x++) {
           res += data[i][x];
         }
+        res += "\n";
       }
       return res;
     }
@@ -51,7 +52,7 @@ public class WordSearch{
      * or there are overlapping letters that do not match, then false is returned
      * and the board is NOT modified.
      */
-    public boolean addWordHorizontal(String word,int row, int col) {
+    public boolean addWordHorizontal(String word, int row, int col) {
       for (int i = 0; i < row; i++) {
         for (int x = 0; x < col; x++) {
           if (data[i][x] == '_' || word.charAt(x) == data[i][x]) {
@@ -77,7 +78,7 @@ public class WordSearch{
      *or there are overlapping letters that do not match, then false is returned.
      *and the board is NOT modified.
      */
-    public boolean addWordVertical(String word,int row, int col) {
+    public boolean addWordVertical(String word, int row, int col) {
       for (int i = 0; i < row; i++) {
         for (int x = 0; x < col; x++) {
           if (data[i][x] == '_' || word.charAt(i) == data[i][x]) {
