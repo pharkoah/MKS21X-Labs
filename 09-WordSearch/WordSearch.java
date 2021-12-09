@@ -33,7 +33,7 @@ public class WordSearch{
       String res = "";
       for (int i = 0; i < Prows; i++) {
         for (int x = 0; x < Pcols; x++) {
-          res += data[i][x]
+          res += data[i][x];
         }
       }
       return res;
@@ -52,6 +52,16 @@ public class WordSearch{
      * and the board is NOT modified.
      */
     public boolean addWordHorizontal(String word,int row, int col) {
+      for (int i = 0; i < row; i++) {
+        for (int x = 0; x < col; x++) {
+          if (data[i][x] == '_') {
+            data[i][x] = word.charAt(x);
+          }
+          else {
+            return false;
+          }
+        }
+      }
       return true;
     }
 
