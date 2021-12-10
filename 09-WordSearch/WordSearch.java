@@ -22,7 +22,12 @@ public class WordSearch{
 
     /**Set all values in the WordSearch to underscores'_'*/
     private void clear() {
-
+      data = new char[Prows][Pcols];
+      for (int i = 0; i < Prows; i++) {
+        for (int x = 0; x < Pcols; x++) {
+          data[i][x] = '_';
+        }
+      }
     }
 
     /**Each row is a new line, there is a space between each letter
@@ -53,8 +58,8 @@ public class WordSearch{
      * and the board is NOT modified.
      */
     public boolean addWordHorizontal(String word, int row, int col) {
-      for (int i = 0; i < row; i++) {
-        for (int x = 0; x < col; x++) {
+      for (int i = row; i < row+1; i++) {
+        for (int x = col; x < col+word.length(); x++) {
           if (data[i][x] == '_' || word.charAt(x) == data[i][x]) {
             data[i][x] = word.charAt(x);
           }
@@ -79,10 +84,10 @@ public class WordSearch{
      *and the board is NOT modified.
      */
     public boolean addWordVertical(String word, int row, int col) {
-      for (int i = 0; i < row; i++) {
-        for (int x = 0; x < col; x++) {
-          if (data[i][x] == '_' || word.charAt(i) == data[i][x]) {
-            data[i][x] = word.charAt(i);
+      for (int i = col; i < col+1; i++) {
+        for (int x = row; x < row+word.length(); x++) {
+          if (data[x][i] == '_' || word.charAt(x) == data[i][x]) {
+            data[x][i] = word.charAt(x);
           }
           else {
             return false;
