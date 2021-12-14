@@ -43,7 +43,7 @@ public class WordSearch{
         res += "\n";
       }
       System.out.println(res);
-      return "";
+      return "res";
     }
 
 
@@ -59,13 +59,14 @@ public class WordSearch{
      * and the board is NOT modified.
      */
     public boolean addWordHorizontal(String word, int row, int col) {
+
       for (int i = row; i < row+1; i++) {
         for (int x = col; x < col+word.length(); x++) {
           if (data[i][x] == '_' || word.charAt(x) == data[i][x]) {
             data[i][x] = word.charAt(x);
           }
           else {
-            for (int j = x; x > col; j--) {
+            for (int j = x; j > col; j--) {
               data[i][j] = '_';
             }
             return false;
@@ -90,10 +91,13 @@ public class WordSearch{
     public boolean addWordVertical(String word, int row, int col) {
       for (int i = col; i < col+1; i++) {
         for (int x = row; x < row+word.length(); x++) {
-          if (data[x][i] == '_' || word.charAt(x) == data[i][x]) {
+          if (data[x][i] == '_' || word.charAt(x) == data[x][i]) {
             data[x][i] = word.charAt(x);
           }
           else {
+            for (int j = x-1; j > row-1; j--) {
+              data[j][i] = '_';
+            }
             return false;
           }
         }
