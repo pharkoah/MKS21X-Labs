@@ -6,8 +6,10 @@ public class Test{
     x.addWordHorizontal("woo", 3, 0);
     x.toString(); // initial horizontal test
     x.addWordVertical("hiii", 0, 2);
-    x.toString(); // overlap test
+    x.toString(); // overlap test horizontal
     x.addWordVertical("hiii", 0, 4);
     x.toString(); // initial vertical test
+    x.addWordHorizontal("cring", 2, 0);
+    x.toString();
   }
 }
