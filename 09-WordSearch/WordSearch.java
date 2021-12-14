@@ -42,7 +42,8 @@ public class WordSearch{
         }
         res += "\n";
       }
-      return res;
+      System.out.println(res);
+      return "";
     }
 
 
@@ -64,6 +65,9 @@ public class WordSearch{
             data[i][x] = word.charAt(x);
           }
           else {
+            for (int j = x; x > col; j--) {
+              data[i][j] = '_';
+            }
             return false;
           }
         }
