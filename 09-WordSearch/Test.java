@@ -11,5 +11,8 @@ public class Test{
     x.toString(); // initial vertical test
     x.addWordHorizontal("cring", 2, 0);
     x.toString();
+    WordSearch y = new WordSearch(10, 10);
+    y.addWordDiagonal("cringe", 0, 0);
+    y.toString();
   }
 }
