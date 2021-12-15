@@ -124,6 +124,11 @@ public class WordSearch{
           wordIndex++;
         }
         else {
+          int k = i - 1;
+          for (int j = x-1; j > col - 1 && k > row - 1; j--) {
+            data[k][j] = '_';
+            k--;            
+          }
           return false;
         }
         x++;
