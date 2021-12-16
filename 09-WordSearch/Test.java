@@ -12,7 +12,13 @@ public class Test{
     x.addWordHorizontal("cring", 2, 0);
     x.toString();
     WordSearch y = new WordSearch(10, 10);
-    y.addWordDiagonal("cringe", 0, 0);
+    y.addWordDiagonal("cringe", 1, 1);
+    y.toString();
+    x.addWordDiagonal("wooo", 0, 0);
+    x.toString();
+    y.addWordHorizontal("crine", 3, 4);
+    y.toString();
+    y.addWordDiagonal("beryl", 4, 0);
     y.toString();
   }
 }
