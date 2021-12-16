@@ -59,10 +59,12 @@ public class WordSearch{
      * and the board is NOT modified.
      */
     public boolean addWordHorizontal(String word, int row, int col) {
+      int wordIndex = 0;
       for (int i = row; i < row+1; i++) {
         for (int x = col; x < col+word.length(); x++) {
-          if (data[i][x] == '_' || word.charAt(x) == data[i][x]) {
-            data[i][x] = word.charAt(x);
+          if (data[i][x] == '_' || word.charAt(wordIndex) == data[i][x]) {
+            data[i][x] = word.charAt(wordIndex);
+            wordIndex++;
           }
           else {
             for (int j = x-1; j > col-1; j--) {
@@ -88,10 +90,12 @@ public class WordSearch{
      *and the board is NOT modified.
      */
     public boolean addWordVertical(String word, int row, int col) {
+      int wordIndex = 0;
       for (int i = col; i < col+1; i++) {
         for (int x = row; x < row+word.length(); x++) {
-          if (data[x][i] == '_' || word.charAt(x) == data[x][i]) {
-            data[x][i] = word.charAt(x);
+          if (data[x][i] == '_' || word.charAt(wordIndex) == data[x][i]) {
+            data[x][i] = word.charAt(wordIndex);
+            wordIndex++;
           }
           else {
             for (int j = x-1; j > row-1; j--) {
@@ -124,10 +128,10 @@ public class WordSearch{
           wordIndex++;
         }
         else {
-          int k = i - 1;
-          for (int j = x-1; j > col - 1 && k > row - 1; j--) {
-            data[k][j] = '_';
-            k--;            
+          while (row < i && col < x) {
+            data[row][col] = '_';
+            row++;
+            col++;
           }
           return false;
         }
