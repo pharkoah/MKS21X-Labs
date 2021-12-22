@@ -26,7 +26,9 @@ public class NoNullArrayList<T> extends ArrayList<T> {
     if (element == null) {
       throw new IllegalArgumentException ("Null can not be added");
     } else {
+      T oldEl = super.get(index);
       super.set(index, element);
+      return oldEl;
     }
   }
 
