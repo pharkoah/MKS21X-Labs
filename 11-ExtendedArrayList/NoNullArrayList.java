@@ -1,6 +1,13 @@
 import java.util.ArrayList;
 public class NoNullArrayList<T> extends ArrayList<T> {
   private T value;
+  public NoNullArrayList() {
+    super();
+  }
+
+  public NoNullArrayList(int startingCapacity) {
+    super(startingCapacity);
+  }
 
   @Override
   public boolean add (T e) {
@@ -26,9 +33,7 @@ public class NoNullArrayList<T> extends ArrayList<T> {
     if (element == null) {
       throw new IllegalArgumentException ("Null can not be added");
     } else {
-      T oldEl = super.get(index);
-      super.set(index, element);
-      return oldEl;
+      return super.set(index, element);
     }
   }
 
