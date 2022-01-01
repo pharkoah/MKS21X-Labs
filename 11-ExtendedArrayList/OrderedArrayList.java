@@ -21,6 +21,12 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     super.add(index, element);
   }
 
+  public T set(int index, T element) {
+    T remove = remove(index);
+    add(index, element);
+    return remove;
+  }
+
   private int whereToPlace(T value){
     /*return the index that the value should be placed
     when inserting into the OrderedArrayList .*/
@@ -29,6 +35,6 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
         return i;
       }
     }
-    return -1;
+    return size();
   }
 }
