@@ -139,4 +139,29 @@ public class WordSearch{
       }
       return true;
     }
+
+    public boolean addWord(int row, int col, String word, int rowInc, int colInc) {
+      if (rowInc == 0 && colInc == 0) {
+        return false;
+      }
+      int barrierR = 0;
+      int barrierC = 0;
+      for (int i = 0; i < word.length(); i++) {
+        barrierR = rowInc * i + row;
+        barrierC = colInc * i + col;
+        if (data[barrierR][barrierC] == '_' || word.charAt(i) == data[barrierR][barrierC]) {
+          data[barrierR][barrierC] = word.charAt(i);
+        } else {
+          int incR = 0;
+          int incC = 0;
+          for (int x = 0; incR != barrierR && incC != barrierC; x++) {
+            incR = rowInc * x + row;
+            incC = colInc * x + col;
+            data[incR][incC] = '_';
+          }
+          return false;
+        }
+      }
+      return true;
+    }
 }
