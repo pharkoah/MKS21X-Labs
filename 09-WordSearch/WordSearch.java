@@ -20,6 +20,9 @@ public class WordSearch{
         seed = randgen.nextInt();
         randgen = new Random(seed);
         data = new char[rows][cols];
+        clear();
+        wordsAdded = new ArrayList<String>();
+        addAllWords(fileName);
     }
 
     public WordSearch( int rows, int cols, String fileName, int randSeed){
@@ -27,6 +30,9 @@ public class WordSearch{
         seed = s;
         randgen = new Random(seed);
         data = new char[rows][cols];
+        clear();
+        wordsAdded = new ArrayList<String>();
+        addAllWords(fileName);
     }
 
     private void clear() {
@@ -46,8 +52,16 @@ public class WordSearch{
         }
         res += "\n";
       }
-      System.out.println(res);
-      return "res";
+      res += "Words: "
+      for (int x = 0; x < wordsAdded.size(); x++) {
+        if (x == wordsAdded.size()-1) {
+          res += wordsAdded.get(i);
+        } else {
+          res += wordsAdded.get(i) + ", ";
+        }
+      }
+      res += "\n Seed: " + seed;
+      return res;
     }
 
     /**Attempts to add a given word to the specified position of the WordGrid.
@@ -87,6 +101,7 @@ public class WordSearch{
           return false;
         }
       }
+      wordsAdded.word(word);
       return true;
     }
 
