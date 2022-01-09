@@ -6,17 +6,21 @@ public class WordSearch{
   private Random rng;
   private int seed;
 
+
   public static void main(String[] args) {
     WordSearch main;
     int row = Integer.parseInt(args[0]);
     int col = Integer.parseInt(args[1]);
     String fileName = args[2];
-    int mode = args[3];
+    int mode = Integer.parseInt(args[3]);
     if (args.length == 5) {
       int seed = Integer.parseInt(args[4]);
       main = new WordSearch(row, col, fileName, mode, seed);
     } else {
       main = new WordSearch(row, col, fileName, mode);
+    }
+    if (mode == 0) {
+      main.fillInRandomLetters();
     }
     System.out.println(main.toString());
   }
@@ -32,19 +36,16 @@ public class WordSearch{
       for (int x = 0; word == true && x < 333; x++) {
         int row = rng.nextInt(grid.length);
         int col = rng.nextInt(grid[0].length);
-        int inc = rng.nextInt(3) - 1;
-        int inc = rng.nextInt(3) - 1;
+        int incR = rng.nextInt(3) - 1;
+        int incC = rng.nextInt(3) - 1;
         if (addWord(res, row, col, incR, incC)) {
           word = true;
           wordsToAdd.remove(index);
-          wordsAdded.add(res);
-          grid.addWord(res, row, col, incR, incC);
+          addWord(res, row, col, incR, incC);
         }
       }
     }
-    if (mode == 0) {
-      grid.fillInRandomLetters();
-    }
+
 
   }
 
@@ -59,7 +60,6 @@ public class WordSearch{
   }
 
   public WordSearch(int rows,int cols, String fileName, int mode){
-    this.mode = mode;
     rng = new Random();
     seed = rng.nextInt();
     rng = new Random(seed);
@@ -70,7 +70,6 @@ public class WordSearch{
   }
 
   public WordSearch(int rows,int cols, String fileName, int mode, int s){
-    this.mode = mode;
     seed = s;
     rng = new Random(seed);
     grid = new char[rows][cols];
