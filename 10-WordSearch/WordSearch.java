@@ -21,12 +21,21 @@ public class WordSearch{
         int inc = rng.nextInt(3) - 1;
         if (addWord(res, row, col, incR, incC)) {
           word = true;
-          wordsToAdd.remove(res);
+          wordsToAdd.remove(index);
           wordsAdded.add(res);
         }
       }
     }
+  }
 
+  private void fillInRandomLetters() {
+    for (int r = 0; r < grid.length; r++) {
+      for (int c = 0; c < grid[r].length; c++) {
+        if (grid[r][c] = '_') {
+          grid[r][c] = (char) (rng.nextInt(26) + 'A');
+        }
+      }
+    }
   }
 
   public WordSearch(int rows,int cols, String fileName){
@@ -70,7 +79,7 @@ public class WordSearch{
   private void clear(){
     for(int r = 0; r < grid.length; r++){
       for(int c = 0; c < grid[r].length; c++){
-        grid[r][c]='_';
+        grid[r][c] = '_';
       }
     }
   }
