@@ -21,7 +21,8 @@ public class WordSearch{
         int inc = rng.nextInt(3) - 1;
         if (addWord(res, row, col, incR, incC)) {
           word = true;
-          grid.addWord(res, row, col, incR, incC);
+          wordsToAdd.remove(res);
+          wordsAdded.add(res);
         }
       }
     }
