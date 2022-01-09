@@ -6,9 +6,24 @@ public class WordSearch{
   private Random rng;
   private int seed;
 
+  public static void main(String[] args) {
+    WordSearch main;
+    int row = Integer.parseInt(args[0]);
+    int col = Integer.parseInt(args[1]);
+    String fileName = args[2];
+    int mode = args[3];
+    if (args.length == 5) {
+      int seed = Integer.parseInt(args[4]);
+      main = new WordSearch(row, col, fileName, mode, seed);
+    } else {
+      main = new WordSearch(row, col, fileName, mode);
+    }
+    System.out.println(main.toString());
+  }
+
   //assume a rectangular grid
-  private void addAllWords(String filename){
-    ArrayList<String> wordsToAdd = loadWordsFromFile(filename);
+  private void addAllWords(String fileName){
+    ArrayList<String> wordsToAdd = loadWordsFromFile(fileName);
     //You are writing this
     boolean word = false;
     for (int i = 0; i < wordsToAdd.size(); i++) {
@@ -23,22 +38,28 @@ public class WordSearch{
           word = true;
           wordsToAdd.remove(index);
           wordsAdded.add(res);
+          grid.addWord(res, row, col, incR, incC);
         }
       }
     }
+    if (mode == 0) {
+      grid.fillInRandomLetters();
+    }
+
   }
 
   private void fillInRandomLetters() {
     for (int r = 0; r < grid.length; r++) {
       for (int c = 0; c < grid[r].length; c++) {
-        if (grid[r][c] = '_') {
+        if (grid[r][c] == '_') {
           grid[r][c] = (char) (rng.nextInt(26) + 'A');
         }
       }
     }
   }
 
-  public WordSearch(int rows,int cols, String fileName){
+  public WordSearch(int rows,int cols, String fileName, int mode){
+    this.mode = mode;
     rng = new Random();
     seed = rng.nextInt();
     rng = new Random(seed);
@@ -48,7 +69,8 @@ public class WordSearch{
     addAllWords(fileName);
   }
 
-  public WordSearch(int rows,int cols, String fileName, int s){
+  public WordSearch(int rows,int cols, String fileName, int mode, int s){
+    this.mode = mode;
     seed = s;
     rng = new Random(seed);
     grid = new char[rows][cols];
