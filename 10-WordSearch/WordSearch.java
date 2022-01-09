@@ -10,6 +10,21 @@ public class WordSearch{
   private void addAllWords(String filename){
     ArrayList<String> wordsToAdd = loadWordsFromFile(filename);
     //You are writing this
+    boolean word = false;
+    for (int i = 0; i < wordsToAdd.size(); i++) {
+      int index = rng.nextInt(wordsToAdd.size());
+      String res = wordsToAdd.get(index);
+      for (int x = 0; word == true && x < 333; x++) {
+        int row = rng.nextInt(grid.length);
+        int col = rng.nextInt(grid[0].length);
+        int inc = rng.nextInt(3) - 1;
+        int inc = rng.nextInt(3) - 1;
+        if (addWord(res, row, col, incR, incC)) {
+          word = true;
+          grid.addWord(res, row, col, incR, incC);
+        }
+      }
+    }
 
   }
 
