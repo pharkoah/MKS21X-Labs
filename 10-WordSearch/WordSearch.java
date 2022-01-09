@@ -19,6 +19,7 @@ public class WordSearch{
     } else {
       main = new WordSearch(row, col, fileName, mode);
     }
+    main.addAllWords(fileName);
     if (mode == 0) {
       main.fillInRandomLetters();
     }
@@ -33,20 +34,17 @@ public class WordSearch{
     for (int i = 0; i < wordsToAdd.size(); i++) {
       int index = rng.nextInt(wordsToAdd.size());
       String res = wordsToAdd.get(index);
-      for (int x = 0; word == true && x < 333; x++) {
+      for (int x = 0; word == true && x < 100; x++) {
         int row = rng.nextInt(grid.length);
         int col = rng.nextInt(grid[0].length);
         int incR = rng.nextInt(3) - 1;
         int incC = rng.nextInt(3) - 1;
-        if (addWord(res, row, col, incR, incC)) {
+        if (addWord(res, rng.nextInt(grid.length), rng.nextInt(grid[0].length), rng.nextInt(3) - 1, rng.nextInt(3) - 1) == true) {
           word = true;
-          wordsToAdd.remove(index);
-          addWord(res, row, col, incR, incC);
+          wordsAdded.add(res);
         }
       }
     }
-
-
   }
 
   private void fillInRandomLetters() {
@@ -134,19 +132,20 @@ public class WordSearch{
     return true;
   }
 
-  public String toString(){
-    String ans = "";
-    for(int r = 0; r < grid.length; r++){
-      for(int c = 0; c < grid[r].length; c++){
-        ans += grid[r][c]+" ";
+  public String toString() {
+    String res = "";
+    for (int i = 0; i < grid.length; i++) {
+      for (int x = 0; x < grid[i].length; x++) {
+        res += grid[i][x] + " ";
       }
-      ans+="\n";
+      res += "\n";
     }
-    ans += "words: ";
-    for(String word:wordsAdded){
-      ans+= word+" ";
+    res += "Words: ";
+    for (int x = 0; x < wordsAdded.size(); x++) {
+      res += wordsAdded.get(x) + " ";
     }
-    ans += "\nseed: "+seed;
-    return ans;
+    res += "\nSeed: " + seed;
+    return res;
   }
+
 }
