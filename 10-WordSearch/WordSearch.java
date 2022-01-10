@@ -19,7 +19,7 @@ public class WordSearch{
     } else {
       main = new WordSearch(row, col, fileName, mode);
     }
-    main.addAllWords(fileName);
+
     if (mode == 0) {
       main.fillInRandomLetters();
     }
@@ -30,18 +30,17 @@ public class WordSearch{
   private void addAllWords(String fileName){
     ArrayList<String> wordsToAdd = loadWordsFromFile(fileName);
     //You are writing this
-    boolean word = false;
     for (int i = 0; i < wordsToAdd.size(); i++) {
-      int index = rng.nextInt(wordsToAdd.size());
-      String res = wordsToAdd.get(index);
-      for (int x = 0; word == true && x < 100; x++) {
+      boolean word = false;
+      //int index = rng.nextInt(wordsToAdd.size());
+      String res = wordsToAdd.get(i);
+      for (int x = 0; word == false && x < 333; x++) {
         int row = rng.nextInt(grid.length);
         int col = rng.nextInt(grid[0].length);
         int incR = rng.nextInt(3) - 1;
-        int incC = rng.nextInt(3) - 1;
-        if (addWord(res, rng.nextInt(grid.length), rng.nextInt(grid[0].length), rng.nextInt(3) - 1, rng.nextInt(3) - 1) == true) {
+        int incC = rng.nextInt(3) - 1; //
+        if (addWord(res, row, col, incR, incC) == true) {
           word = true;
-          wordsAdded.add(res);
         }
       }
     }
