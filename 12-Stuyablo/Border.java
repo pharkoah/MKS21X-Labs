@@ -23,8 +23,16 @@ public class Border{
 
   public static void rArr(int row, int col) {
     int random = (int)(Math.random()*100);
-    //for (int i = 0; i < 5)
-    //System.out.print(Text.colorize(random, Text.BLUE, Text.BOLD));
+    int[] arr = new int[4];
+    if (random < 25) {
+      System.out.print(Text.colorize("c", Text.RED, Text.BOLD));
+    }
+    if (random > 75) {
+      System.out.print(Text.colorize("c", Text.BLACK, Text.BOLD));
+    }
+    else {
+      System.out.print(Text.colorize("c", Text.WHITE, Text.BOLD));
+    }
   }
 
   public static void main(String[] args) {
