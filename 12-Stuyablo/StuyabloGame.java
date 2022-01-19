@@ -11,23 +11,53 @@ public class StuyabloGame{
 
   //Display a List of 1-4 adventurers on the rows row through row+3 (4 rows max)
   //Should include Name and HP on 2 separate lines. (more to be added later)
-  public static void drawParty(ArrayList<Adventurer> party,int startRow){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+  public static void drawParty(ArrayList<Adventurer> party, int startRow){
+    party = new ArrayList<Adventurer>(3);
+    for (int i = 0; i < party.size(); i++) {
+      Text.go(startRow + 1, 2);
+      System.out.println(party.get(i));
+      Text.go(startRow + 2, 2);
+      System.out.println(party.get(i).getSpecialName + ": " + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax());
+      Text.go(startRow + 3, 2);
+      System.out.println(colorHP(party.get(i)));
+    }
+  }
+
+  public static void colorHP(Adventurer p) {
+    String res = "";
+    res += p.getHP() + "/" + p.getmaxHP();
+    if (p.getHP() < 25) {
+      System.out.print(Text.colorize(res, Text.RED, Text.BOLD));
+    }
+    if (p.getHP() > 75) {
+      System.out.print(Text.colorize(res, Text.GREEN, Text.BOLD));
+    }
+    if (p.getHP() <= 75 && p.getHP() >= 25){
+      System.out.print(Text.colorize(res, Text.YELLOW, Text.BOLD));
   }
 
   //Display a line of text starting at column 2 of the specified row.
-  public static void drawText(String s,int startRow){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+  public static void drawText(String s, int startRow){
+    Text.go(startRow, 2);
+    System.out.println(s);
   }
 
   public static void drawScreen(){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    Text.clear();
+    for (int i = 0; i < HEIGHT; i++) {
+      Text.go(i, 0);
+      System.out.print(Text.colorize("c", Text.BLUE, Text.WHITE + Text.BACKGROUND, Text.BOLD));
+      Text.go(i + 1, WIDTH - 1);
+      System.out.print(Text.colorize("c", Text.BLUE, Text.WHITE + Text.BACKGROUND, Text.BOLD));
+    }
+
+    for (int j = 0; j < WIDTH; j++) {
+      Text.go(0, j);
+      System.out.print(Text.colorize("c", Text.BLUE, Text.WHITE + Text.BACKGROUND, Text.BOLD));
+      Text.go(HEIGHT - 1, j + 1);
+      System.out.print(Text.colorize("c", Text.BLUE, Text.WHITE + Text.BACKGROUND, Text.BOLD));
+    }
+    Text.go(HEIGHT + 1, 0);
   }
 
 
