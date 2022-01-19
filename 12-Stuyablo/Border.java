@@ -19,7 +19,7 @@ public class Border{
       System.out.print(Text.colorize("c", Text.BLUE, Text.WHITE + Text.BACKGROUND, Text.BOLD));
     }
     rArr(row, col);
-    System.out.println();
+    Text.go(31, 0);
   }
 
   public static void rArr(int row, int col) {
