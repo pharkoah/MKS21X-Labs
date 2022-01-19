@@ -17,23 +17,28 @@ public class StuyabloGame{
       Text.go(startRow + 1, 2);
       System.out.println(party.get(i));
       Text.go(startRow + 2, 2);
-      System.out.println(party.get(i).getSpecialName + ": " + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax());
+      System.out.println(party.get(i).getSpecialName() + ": " + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax());
       Text.go(startRow + 3, 2);
-      System.out.println(colorHP(party.get(i)));
+      System.out.println();
     }
   }
 
-  public static void colorHP(Adventurer p) {
+  public static String colorHP(Adventurer p) {
     String res = "";
     res += p.getHP() + "/" + p.getmaxHP();
-    if (p.getHP() < 25) {
-      System.out.print(Text.colorize(res, Text.RED, Text.BOLD));
+    double percent = (double)(p.getHP() / p.getmaxHP());
+    if (percent < 0.25) {
+      return(Text.colorize(res, Text.RED, Text.BOLD));
     }
-    if (p.getHP() > 75) {
-      System.out.print(Text.colorize(res, Text.GREEN, Text.BOLD));
+    if (percent > 0.75) {
+      return (Text.colorize(res, Text.GREEN, Text.BOLD));
     }
-    if (p.getHP() <= 75 && p.getHP() >= 25){
-      System.out.print(Text.colorize(res, Text.YELLOW, Text.BOLD));
+    if (percent <= 0.75 && percent >= 0.25){
+      return (Text.colorize(res, Text.YELLOW, Text.BOLD));
+    }
+    else {
+      return (Text.colorize(res, Text.YELLOW, Text.BOLD));
+    }
   }
 
   //Display a line of text starting at column 2 of the specified row.
@@ -47,14 +52,14 @@ public class StuyabloGame{
     for (int i = 0; i < HEIGHT; i++) {
       Text.go(i, 0);
       System.out.print(Text.colorize("c", Text.BLUE, Text.WHITE + Text.BACKGROUND, Text.BOLD));
-      Text.go(i + 1, WIDTH - 1);
+      Text.go(i + 1, WIDTH );
       System.out.print(Text.colorize("c", Text.BLUE, Text.WHITE + Text.BACKGROUND, Text.BOLD));
     }
 
     for (int j = 0; j < WIDTH; j++) {
       Text.go(0, j);
       System.out.print(Text.colorize("c", Text.BLUE, Text.WHITE + Text.BACKGROUND, Text.BOLD));
-      Text.go(HEIGHT - 1, j + 1);
+      Text.go(HEIGHT, j + 1);
       System.out.print(Text.colorize("c", Text.BLUE, Text.WHITE + Text.BACKGROUND, Text.BOLD));
     }
     Text.go(HEIGHT + 1, 0);
