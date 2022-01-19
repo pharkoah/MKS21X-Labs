@@ -4,15 +4,15 @@ public class Warrior extends Adventurer {
     private int rageMax;
 
     public Warrior() {
-	     this("Joseph Joestar");
+	     this("GERALT OF RIVIA");
     }
 
     public Warrior(String name) {
-	     this(name,"I know what you're going to say next", 18);
+	     this(name, "Aggressive Hmph", 99);
     }
 
     public Warrior(String name, String warcry, int rage) {
-      super(name, 30 + (int)(Math.random()*10));
+      super(name, 50 + (int)(Math.random()*10));
       setWarcry(warcry);
       setRage(rage);
       this.rageMax = 20;
@@ -22,7 +22,9 @@ public class Warrior extends Adventurer {
     public String attack(Damageable other) {
   	  int damage = (int)(Math.random()*10)+1;
 	    other.applyDamage(damage);
-	    setRage(getSpecial() + 1);
+      if (rage < rageMax) {
+        setRage(getSpecial() + 1);
+      }
 	    return (this +
       " attacked " + other + " for " +
       damage + " damage!");

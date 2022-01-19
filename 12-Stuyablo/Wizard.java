@@ -7,7 +7,7 @@ public class Wizard extends Adventurer {
   }
 
   public Wizard(String name) {
-     this(name, 45);
+     this(name, 75);
   }
 
   public Wizard(String name, int magic) {
@@ -24,7 +24,9 @@ public class Wizard extends Adventurer {
   public String attack(Damageable other) {
     int damage = (int)(Math.random()*10)+1;
     other.applyDamage(damage);
-    this.magic = (getSpecial() + 1);
+    if (magic < magicMax) {
+      this.magic = (getSpecial() + 1);
+    }
     return (this +
     " attacked " + other + " for " +
     damage + " damage!");
@@ -43,16 +45,12 @@ public class Wizard extends Adventurer {
     }
   }
 
-  //get methods
-  public int getMagic() {
-    return magic;
-  }
-
   //set methods
   public void setMagic(int r) {
     this.magic = r;
   }
 
+  //get methods
   public String getSpecialName() {
     return "Magic";
   }

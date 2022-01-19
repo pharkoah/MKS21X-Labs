@@ -13,30 +13,30 @@ public class StuyabloGame{
   //Should include Name and HP on 2 separate lines. (more to be added later)
   public static void drawParty(ArrayList<Adventurer> party, int startRow){
     for (int i = 0; i < party.size(); i++) {
-      Text.go(startRow, 2);
+      int col = ((WIDTH / 3) * i) + 2;
+      Text.go(startRow, col);
       System.out.println(party.get(i));
-      Text.go(startRow + 1, 2);
+      Text.go(startRow + 1, col);
       System.out.println(party.get(i).getSpecialName() + ": " + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax());
-      Text.go(startRow + 2, 2);
-      System.out.println();
+      Text.go(startRow + 2, col);
+      System.out.println(colorHP(party.get(i)));
     }
   }
 
   public static String colorHP(Adventurer p) {
-    String res = "";
-    res += p.getHP() + "/" + p.getmaxHP();
-    double percent = (double)(p.getHP() / p.getmaxHP());
+    String res = "" + p.getHP();
+    double percent = (p.getHP() * 1.0) / (p.getmaxHP() * 1.0);
     if (percent < 0.25) {
-      return(Text.colorize(res, Text.RED, Text.BOLD));
+      return("HP: " + Text.colorize(res, Text.RED, Text.BOLD) + "/" + p.getmaxHP());
     }
     if (percent > 0.75) {
-      return (Text.colorize(res, Text.GREEN, Text.BOLD));
+      return ("HP: " + Text.colorize(res, Text.GREEN, Text.BOLD) + "/" + p.getmaxHP());
     }
     if (percent <= 0.75 && percent >= 0.25){
-      return (Text.colorize(res, Text.YELLOW, Text.BOLD));
+      return ("HP: " + Text.colorize(res, Text.YELLOW, Text.BOLD) + "/" + p.getmaxHP());
     }
     else {
-      return (Text.colorize(res, Text.YELLOW, Text.BOLD));
+      return ("HP: " + Text.colorize(res, Text.YELLOW, Text.BOLD) + "/" + p.getmaxHP());
     }
   }
 
@@ -125,9 +125,9 @@ public class StuyabloGame{
         if (turn > 0){
           int ranAttack = (int)(Math.random()*10);
           if (ranAttack == 9) {
-            drawText(enemies.get(0).specialAttack(enemies.get(ranPlayers)), 12);
+            drawText(enemies.get(0).specialAttack(party.get(ranPlayers)), 12);
           } else {
-            drawText(enemies.get(0).attack(enemies.get(ranPlayers)), 12);
+            drawText(enemies.get(0).attack(party.get(ranPlayers)), 12);
           }
         }
 
