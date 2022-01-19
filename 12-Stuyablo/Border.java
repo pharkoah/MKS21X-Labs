@@ -25,11 +25,8 @@ public class Border{
   public static void rArr(int row, int col) {
     //int random = (int)(Math.random()*100);
     int[] arr = new int[4];
-    Text.go(2, ((col-2)/4)-2);
-    String space = "";
-    for (int x = 0; x < ((col-2)/4)-2; x++) {
-      space += " ";
-    }
+    Text.go(2, 9);
+    String space = "      ";
     for (int i = 0; i < arr.length; i++) {
       String res = "";
       arr[i] = (int)(Math.random()*100);
@@ -44,7 +41,7 @@ public class Border{
         System.out.print(Text.colorize(res, Text.BLUE, Text.BOLD));
       }
       if (i != arr.length-1) {
-        System.out.print(space);
+        System.out.print(space+space+space);
       }
     }
   }
