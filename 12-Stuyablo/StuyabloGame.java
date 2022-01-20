@@ -89,7 +89,7 @@ public class StuyabloGame{
     int whichPlayer = 0;
     int turn = 0;
     int ranEnemies = (int)(Math.random() * enemies.size());
-    int ranPlayers = (int)(Math.random() * party.size());
+    //int ranPlayers = (int)(Math.random() * party.size());
 
     String input = "";
     Scanner in = new Scanner(System.in);
@@ -125,9 +125,9 @@ public class StuyabloGame{
         if (turn > 0){
           int ranAttack = (int)(Math.random()*10);
           if (ranAttack == 9) {
-            drawText(enemies.get(0).specialAttack(party.get(ranPlayers)), 12);
+            drawText(enemies.get(0).specialAttack(party.get((int)(Math.random() * party.size()))), 12);
           } else {
-            drawText(enemies.get(0).attack(party.get(ranPlayers)), 12);
+            drawText(enemies.get(0).attack(party.get((int)(Math.random() * party.size()))), 12);
           }
         }
 

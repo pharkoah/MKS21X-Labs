@@ -12,10 +12,10 @@ public class Warrior extends Adventurer {
     }
 
     public Warrior(String name, String warcry, int rage) {
-      super(name, 50 + (int)(Math.random()*10));
+      super(name, 80 + (int)(Math.random()*10));
       setWarcry(warcry);
       setRage(rage);
-      this.rageMax = 20;
+      this.rageMax = rage;
     }
 
     //warrior methods

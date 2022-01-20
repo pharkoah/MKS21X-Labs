@@ -7,11 +7,11 @@ public class Wizard extends Adventurer {
   }
 
   public Wizard(String name) {
-     this(name, 75);
+     this(name, 30 + (int)(Math.random()*5));
   }
 
   public Wizard(String name, int magic) {
-    this(name, magic, 30 + (int)(Math.random()*5));
+    this(name, magic, 75);
   }
 
   public Wizard(String name, int magic, int HP) {
